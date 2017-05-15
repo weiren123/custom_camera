@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/login_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_login"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/iv_logo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="100dp"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/logo_vcloud"
+                android:contentDescription="@string/empty"
+                android:visibility="visible"/>
+
+            <TextView
+                android:id="@+id/tv_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:layout_gravity="center_horizontal"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:layout_marginTop="20dp"
+                android:visibility="gone"/>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dip"
+                android:layout_marginRight="10dip"
+                android:layout_marginTop="54dp">
+
+                <LinearLayout
+                    android:id="@+id/login_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <com.netease.nim.uikit.common.ui.widget.ClearableEditTextWithIcon
+                        android:id="@+id/edit_login_account"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/edittext_white_normal"
+                        android:drawablePadding="15dp"
+                        android:hint="请输入帐号"
+                        android:paddingLeft="15dp"
+                        android:paddingRight="15dp"
+                        android:textColor="@color/white"
+                        android:textColorHint="#66ffffff"
+                        android:textCursorDrawable="@null"
+                        android:textSize="15sp"/>
+
+                    <com.netease.nim.uikit.common.ui.widget.ClearableEditTextWithIcon
+                        android:id="@+id/edit_login_password"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/edittext_white_normal"
+                        android:drawablePadding="15dp"
+                        android:hint="请输入密码"
+                        android:inputType="textPassword"
+                        android:longClickable="false"
+                        android:paddingLeft="15dp"
+                        android:paddingRight="15dp"
+                        android:textColor="@color/white"
+                        android:textColorHint="#66ffffff"
+                        android:textCursorDrawable="@null"
+                        android:textSize="15sp"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/register_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:visibility="gone">
+
+                    <com.netease.nim.uikit.common.ui.widget.ClearableEditTextWithIcon
+                        android:id="@+id/edit_register_account"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/edittext_white_normal"
+                        android:digits="1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+                        android:drawablePadding="15dp"
+                        android:hint="请输入帐号，限20位字母或者数字"
+                        android:inputType="text"
+                        android:paddingLeft="15dp"
+                        android:paddingRight="15dp"
+                        android:textColor="@color/white"
+                        android:textColorHint="#66ffffff"
+                        android:textCursorDrawable="@null"
+                        android:textSize="15sp"/>
+
+                    <com.netease.nim.uikit.common.ui.widget.ClearableEditTextWithIcon
+                        android:id="@+id/edit_register_nickname"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/edittext_white_normal"
+                        android:drawablePadding="15dp"
+                        android:hint="请输入昵称，限10位汉字、字母或者数字"
+                        android:inputType="text"
+                        android:paddingLeft="15dp"
+                        android:paddingRight="15dp"
+                        android:textColor="@color/white"
+                        android:textColorHint="#66ffffff"
+                        android:textCursorDrawable="@null"
+                        android:textSize="15sp"/>
+
+                    <com.netease.nim.uikit.common.ui.widget.ClearableEditTextWithIcon
+                        android:id="@+id/edit_register_password"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/edittext_white_normal"
+                        android:digits="1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+                        android:drawablePadding="15dp"
+                        android:hint="请输入密码，6~20位字母或者数字"
+                        android:inputType="textPassword"
+                        android:longClickable="false"
+                        android:paddingLeft="15dp"
+                        android:paddingRight="15dp"
+                        android:textColor="@color/white"
+                        android:textColorHint="#66ffffff"
+                        android:textCursorDrawable="@null"
+                        android:textSize="15sp"/>
+                </LinearLayout>
+            </FrameLayout>
+
+            <Button
+                android:id="@+id/btn_login_register"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="50dp"
+                android:gravity="center"
+                android:text="登录"
+                android:textSize="15sp"
+                android:textColor="@drawable/login_btn_text_color_selector"
+                android:background="@drawable/login_btn_bg_selector"
+                android:enabled="true"
+                />
+
+            <TextView
+                android:id="@+id/register_login_tip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10dip"
+                android:padding="15dip"
+                android:text="快速注册"
+                android:textColor="@drawable/register_tip_selector"
+                android:textSize="15sp"/>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
