@@ -233,13 +233,14 @@ public class TakePhoteActivity extends Activity implements CameraPreview.OnCamer
         Uri source = insertImage(getContentResolver(), filename, dateTaken, PATH,
                 filename, bitmap, data);
         //准备截图
-        try {
-            mCropImageView.setImageBitmap(MediaStore.Images.Media.getBitmap(this.getContentResolver(), source));
-//            mCropImageView.rotateImage(90);
-        } catch (IOException e) {
-            Log.e(TAG, e.getMessage());
-        }
-        showCropperLayout();
+        finish();
+//        try {
+//            mCropImageView.setImageBitmap(MediaStore.Images.Media.getBitmap(this.getContentResolver(), source));
+////            mCropImageView.rotateImage(90);
+//        } catch (IOException e) {
+//            Log.e(TAG, e.getMessage());
+//        }
+//        showCropperLayout();
     }
 
     /**

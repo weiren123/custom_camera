@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">CameraDemo</string>
-
+    <string name="start_floatingBall">开启悬浮球功能</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_take_phote">TakePhoteActivity</string>

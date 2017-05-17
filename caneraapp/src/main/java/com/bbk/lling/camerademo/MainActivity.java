@@ -9,12 +9,16 @@ import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import java.util.ArrayList;
 import java.util.List;
 
 
 public class MainActivity extends Activity {
+    /*
+    * 权限没有配置
+    * */
     private TabLayout tab_viewpager;
     private ViewPager view_viewpager;
     private String[] names = {"热门推荐","热门收藏","本月热榜","今日热榜"};
@@ -24,6 +28,7 @@ public class MainActivity extends Activity {
     private View view2;
     private View view3;
     private View view4;
+    private View tab_view;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,23 +49,44 @@ public class MainActivity extends Activity {
         mViewList.add(view2);
         mViewList.add(view3);
         mViewList.add(view4);
-        tab_viewpager.addTab(tab_viewpager.newTab().setText(names[0]));
-        tab_viewpager.addTab(tab_viewpager.newTab().setText(names[1]));
-        tab_viewpager.addTab(tab_viewpager.newTab().setText(names[2]));
-        tab_viewpager.addTab(tab_viewpager.newTab().setText(names[3]));
+
         tab_viewpager.setTabMode(TabLayout.MODE_FIXED);
         MyAdapter adapter = new MyAdapter();
         view_viewpager.setAdapter(adapter);
         tab_viewpager.setupWithViewPager(view_viewpager);
+        tab_viewpager.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+            }
+
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+
+            }
+        });
     }
 
     public void takePhote(View view) {
         startActivity(new Intent(this, TakePhoteActivity.class));
     }
+
     public class MyAdapter extends PagerAdapter{
         @Override
         public Object instantiateItem(ViewGroup container, int position) {
+
             container.addView(mViewList.get(position));
+            Button bt = (Button) view1.findViewById(R.id.but_float);
+            bt.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                        ViewManager.getInstance(MainActivity.this).showFloatBall();
+                }
+            });
             return mViewList.get(position);
         }
 
@@ -73,7 +99,10 @@ public class MainActivity extends Activity {
         public CharSequence getPageTitle(int position) {
             return names[position];//页卡标题
         }
-
+        public View getTabView(int position){
+            tab_view = mInflater.inflate(R.layout.activity_tab_item, null);
+            return tab_view;
+        }
         @Override
         public int getCount() {
             return names.length;

@@ -5,6 +5,9 @@
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.BIND_ACCESSIBILITY_SERVICE"/>
+
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -19,6 +22,7 @@
             </intent-filter>
         </activity>
         <activity
+            android:theme="@style/Transparent"
             android:name=".TakePhoteActivity"
             android:label="@string/title_activity_take_phote"
             android:screenOrientation="nosensor"
@@ -28,6 +32,18 @@
             android:name=".ShowCropperedActivity"
             android:label="@string/title_activity_show_croppered" >
         </activity>
+
+        <!--注册服务-->
+        <service
+            android:name="com.bbk.lling.camerademo.service.MyAccessibilityService"
+            android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE">
+            <intent-filter>
+                <action android:name="android.accessibilityservice.AccessibilityService"/>
+            </intent-filter>
+            <meta-data
+                android:name="android.accessibilityservice"
+                android:resource="@xml/accessibilityservice"/>
+        </service>
     </application>
 
 </manifest>
